@@ -40,7 +40,7 @@ public class BackgroundWorker extends AsyncTask<LogData, Void, String> {
         String reason = logData.reason;
         String time = logData.dateAndTime;
 
-        String uploadURL = "https://upang-qrcode-generator-test3.000webhostapp.com/sql/upload.php";
+        String uploadURL = "https://upang-cls.000webhostapp.com/php/upload_log_from_android.php";
         try {
             URL url = new URL(uploadURL);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -98,7 +98,7 @@ public class BackgroundWorker extends AsyncTask<LogData, Void, String> {
         handler.postDelayed(new Runnable() {
             public void run() {
                 // TODO: Your application init goes here.
-                Intent mInHome = new Intent(context, MainActivity.class);
+                Intent mInHome = new Intent(context, ScannerActivity.class);
                 context.startActivity(mInHome);
             }
         }, 3000);

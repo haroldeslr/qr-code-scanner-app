@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -14,13 +15,13 @@ import java.util.Date;
 public class SaveRecordData extends AppCompatActivity {
     public static final String EXTRA_OBJECT = "LogDataObject";
 
-    private EditText fullName;
-    private EditText contactNumber;
-    private EditText address;
-    private EditText age;
-    private EditText temperature;
-    private EditText gender;
-    private EditText reason;
+    private TextView fullName;
+    private TextView contactNumber;
+    private TextView address;
+    private TextView age;
+    private TextView temperature;
+    private TextView gender;
+    private TextView reason;
     private Button uploadLog;
 
     LogData logData;
@@ -33,14 +34,14 @@ public class SaveRecordData extends AppCompatActivity {
         Intent intent = getIntent();
         logData = (LogData) intent.getSerializableExtra(EXTRA_OBJECT);
 
-        fullName = findViewById(R.id.full_name);
-        contactNumber = findViewById(R.id.contact_number);
-        address = findViewById(R.id.address);
-        age = findViewById(R.id.age);
-        temperature = findViewById(R.id.temperature);
-        gender = findViewById(R.id.gender);
-        reason = findViewById(R.id.reason);
-        uploadLog = findViewById(R.id.upload_log);
+        fullName = findViewById(R.id.tv_fullname);
+        contactNumber = findViewById(R.id.tv_contact);
+        address = findViewById(R.id.tv_address);
+        age = findViewById(R.id.tv_age);
+        temperature = findViewById(R.id.tv_temp);
+        gender = findViewById(R.id.tv_gender);
+        reason = findViewById(R.id.tv_purpose);
+        uploadLog = findViewById(R.id.upload_button);
 
         fullName.setText(logData.fullName);
         contactNumber.setText(logData.contactNumber);
