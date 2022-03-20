@@ -19,12 +19,12 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 
-public class BackgroundWorker extends AsyncTask<LogData, Void, String> {
+public class UploadLog extends AsyncTask<LogData, Void, String> {
     AlertDialog alertDialog;
     Context context;
     LogData logData;
 
-    BackgroundWorker (Context context, LogData logData) {
+    UploadLog(Context context, LogData logData) {
         this.context = context;
         this.logData = logData;
     }

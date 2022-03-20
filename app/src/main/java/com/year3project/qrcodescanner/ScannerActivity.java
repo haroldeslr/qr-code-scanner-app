@@ -4,8 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +33,11 @@ public class ScannerActivity extends AppCompatActivity {
     CodeScanner codeScanner;
     CodeScannerView scannerView;
     TextView resultData;
+
+    public static final String userDataPreferences = "UserDataPreferences";
+    public static final String usernameKey = "UsernameKey";
+    public static final String passwordKey = "PasswordKey";
+    public static final String isUserLoginKey = "IsUserLoginKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,5 +135,40 @@ public class ScannerActivity extends AppCompatActivity {
 
         logData1.validQRData = true;
         return logData1;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                editUserData();
+                navigateToLoginActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    private void navigateToLoginActivity() {
+        Intent intent = new Intent(ScannerActivity.this, Login.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void editUserData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(userDataPreferences, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editUserData = sharedPreferences.edit();
+        editUserData.remove(usernameKey);
+        editUserData.remove(passwordKey);
+        editUserData.putBoolean(isUserLoginKey, false);
+        editUserData.commit();
     }
 }

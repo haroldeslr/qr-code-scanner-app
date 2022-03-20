@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -53,7 +52,7 @@ public class SaveRecordData extends AppCompatActivity {
     }
 
     public void onUpload(View view) {
-        uploadLog.setEnabled(false);
+        this.uploadLog.setEnabled(false);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentDateAndTime = sdf.format(new Date());
@@ -67,7 +66,7 @@ public class SaveRecordData extends AppCompatActivity {
         logData.reason = reason.getText().toString();
         logData.dateAndTime = currentDateAndTime;
 
-        BackgroundWorker backgroundWorker = new BackgroundWorker(this, logData);
-        backgroundWorker.execute();
+        UploadLog uploadLog = new UploadLog(this, logData);
+        uploadLog.execute();
     }
 }

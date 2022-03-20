@@ -1,30 +1,23 @@
 package com.year3project.qrcodescanner;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Parcelable;
-import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.budiyev.android.codescanner.CodeScanner;
-import com.budiyev.android.codescanner.CodeScannerView;
-import com.budiyev.android.codescanner.DecodeCallback;
-import com.google.zxing.Result;
-import com.karumi.dexter.Dexter;
-import com.karumi.dexter.PermissionToken;
-import com.karumi.dexter.listener.PermissionDeniedResponse;
-import com.karumi.dexter.listener.PermissionGrantedResponse;
-import com.karumi.dexter.listener.PermissionRequest;
-import com.karumi.dexter.listener.single.PermissionListener;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity {
-    int splashTimer = 3;
+
+    private final String TAG = "MainActivity";
+
+    private int splashTimer = 3;
+
+    private final String userDataPreferences = "UserDataPreferences";
+    private final String isUserLoginKey = "IsUserLoginKey";
+
+    private Boolean isUserLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +26,30 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        SharedPreferences sharedPreferences = getSharedPreferences(userDataPreferences, MODE_PRIVATE);
+        isUserLogin = sharedPreferences.getBoolean(isUserLoginKey, false);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(MainActivity.this, ScannerActivity.class);
-                startActivity(intent);
-                finish();
+                if (isUserLogin) {
+                    navigateToScannerActivity();
+                } else {
+                    navigateToLoginActivity();
+                }
             }
         }, splashTimer * 1000);
+    }
+
+    private void navigateToLoginActivity() {
+        Intent intent = new Intent(MainActivity.this, Login.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void navigateToScannerActivity() {
+        Intent intent = new Intent(MainActivity.this, ScannerActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
