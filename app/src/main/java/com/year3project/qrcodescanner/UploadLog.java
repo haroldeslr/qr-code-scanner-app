@@ -101,6 +101,6 @@ public class UploadLog extends AsyncTask<LogData, Void, String> {
                 Intent mInHome = new Intent(context, ScannerActivity.class);
                 context.startActivity(mInHome);
             }
-        }, 3000);
+        }, 2500);
     }
 }

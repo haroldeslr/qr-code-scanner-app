@@ -19,7 +19,7 @@
             android:name=".ScannerActivity"
             android:exported="false" />
         <activity
-            android:name=".SaveRecordData"
+            android:name=".SaveRecordDataActivity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

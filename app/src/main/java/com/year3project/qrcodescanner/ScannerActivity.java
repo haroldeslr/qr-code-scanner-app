@@ -78,7 +78,7 @@ public class ScannerActivity extends AppCompatActivity {
     }
 
     private void openSaveRecord(LogData logData) {
-        Intent intent = new Intent(this, SaveRecordData.class);
+        Intent intent = new Intent(this, SaveRecordDataActivity.class);
         intent.putExtra(EXTRA_OBJECT, logData);
         startActivity(intent);
     }

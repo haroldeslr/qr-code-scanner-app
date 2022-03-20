@@ -11,7 +11,7 @@ import android.widget.TextView;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class SaveRecordData extends AppCompatActivity {
+public class SaveRecordDataActivity extends AppCompatActivity {
     public static final String EXTRA_OBJECT = "LogDataObject";
 
     private TextView fullName;
