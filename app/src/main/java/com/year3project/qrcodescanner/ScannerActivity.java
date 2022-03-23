@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -27,6 +28,8 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.single.PermissionListener;
 
 public class ScannerActivity extends AppCompatActivity {
+
+    private final String TAG = "ScannerActivity";
 
     public static final String EXTRA_OBJECT = "LogDataObject";
 
@@ -54,9 +57,13 @@ public class ScannerActivity extends AppCompatActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        LogData logData = formatLogData(result.toString());
-                        if (logData.validQRData) {
-                            openSaveRecord(logData);
+                        boolean qrCodeIsValid = validateQRCode(result.toString());
+
+                        if (qrCodeIsValid) {
+                            LogData logData = formatLogData(result.toString());
+                            if (logData.validQRData) {
+                                openSaveRecord(logData);
+                            }
                         }
                     }
                 });
@@ -128,8 +135,24 @@ public class ScannerActivity extends AppCompatActivity {
         }).check();
     }
 
+    private boolean validateQRCode(String result) {
+        boolean qrCodeIsValid = false;
+        String qrCodeIdentifier = result.substring(0, 13);
+
+        if (qrCodeIdentifier.equals("UPANG_QR_CODE")) {
+            qrCodeIsValid = true;
+        } else {
+            qrCodeIsValid = false;
+        }
+
+        return qrCodeIsValid;
+    }
+
     private LogData formatLogData(String logData) {
-        String[] logDataArray = logData.split(",,,,");
+        int logDataLength = logData.length();
+        String updatedLogData = logData.substring(13, logDataLength);
+
+        String[] logDataArray = updatedLogData.split(",,,,");
         int count = 0;
 
         LogData logData1 = new LogData();
