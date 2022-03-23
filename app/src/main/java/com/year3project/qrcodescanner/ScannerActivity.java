@@ -77,6 +77,32 @@ public class ScannerActivity extends AppCompatActivity {
         requestForCamera();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        requestForCamera();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.action_logout:
+                editUserData();
+                navigateToLoginActivity();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
     private void openSaveRecord(LogData logData) {
         Intent intent = new Intent(this, SaveRecordDataActivity.class);
         intent.putExtra(EXTRA_OBJECT, logData);
@@ -135,26 +161,6 @@ public class ScannerActivity extends AppCompatActivity {
 
         logData1.validQRData = true;
         return logData1;
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            case R.id.action_logout:
-                editUserData();
-                navigateToLoginActivity();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
     }
 
     private void navigateToLoginActivity() {

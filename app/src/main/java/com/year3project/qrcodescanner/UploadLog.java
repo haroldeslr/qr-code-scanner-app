@@ -40,7 +40,7 @@ public class UploadLog extends AsyncTask<LogData, Void, String> {
         String reason = logData.reason;
         String time = logData.dateAndTime;
 
-        String uploadURL = "https://upang-cls.000webhostapp.com/php/upload_log_from_android.php";
+        String uploadURL = "https://pucls.000webhostapp.com/php/upload_log_from_android.php";
         try {
             URL url = new URL(uploadURL);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
