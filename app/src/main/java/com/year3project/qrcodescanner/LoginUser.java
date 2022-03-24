@@ -52,7 +52,7 @@ public class LoginUser extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... strings) {
-        String uploadURL = "https://upang-cls.000webhostapp.com/php/login_scanner_app.php";
+        String uploadURL = "https://pucls.000webhostapp.com/php/login_scanner_app.php";
         try {
             URL url = new URL(uploadURL);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
