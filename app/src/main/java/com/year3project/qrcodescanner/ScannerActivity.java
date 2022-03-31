@@ -157,7 +157,7 @@ public class ScannerActivity extends AppCompatActivity {
 
         LogData logData1 = new LogData();
 
-        if (logDataArray.length != 7) {
+        if (logDataArray.length != 9) {
             logData1.validQRData = false;
             return logData1;
         }
@@ -177,6 +177,10 @@ public class ScannerActivity extends AppCompatActivity {
                 logData1.gender = data;
             } else if (count == 6) {
                 logData1.reason = data;
+            } else if (count == 7) {
+                logData1.selectedBuilding = data;
+            } else if (count == 8) {
+                logData1.imageName = data;
             }
 
             count++;

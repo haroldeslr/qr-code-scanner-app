@@ -10,6 +10,8 @@ public class LogData implements Serializable {
     public String temperature;
     public String gender;
     public String reason;
+    public String selectedBuilding;
+    public String imageName;
     public String dateAndTime;
 
     public boolean validQRData;

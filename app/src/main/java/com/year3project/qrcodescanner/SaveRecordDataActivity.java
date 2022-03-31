@@ -21,6 +21,7 @@ public class SaveRecordDataActivity extends AppCompatActivity {
     private TextView temperature;
     private TextView gender;
     private TextView reason;
+    private TextView selectedBuildings;
     private Button uploadLog;
 
     LogData logData;
@@ -41,6 +42,7 @@ public class SaveRecordDataActivity extends AppCompatActivity {
         gender = findViewById(R.id.tv_gender);
         reason = findViewById(R.id.tv_purpose);
         uploadLog = findViewById(R.id.upload_button);
+        selectedBuildings = findViewById(R.id.tv_selected_buildings);
 
         fullName.setText(logData.fullName);
         contactNumber.setText(logData.contactNumber);
@@ -49,6 +51,7 @@ public class SaveRecordDataActivity extends AppCompatActivity {
         temperature.setText(logData.temperature);
         gender.setText(logData.gender);
         reason.setText(logData.reason);
+        selectedBuildings.setText(logData.selectedBuilding);
     }
 
     public void onUpload(View view) {
@@ -57,13 +60,6 @@ public class SaveRecordDataActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String currentDateAndTime = sdf.format(new Date());
 
-        logData.fullName = fullName.getText().toString();
-        logData.contactNumber = contactNumber.getText().toString();
-        logData.address = address.getText().toString();
-        logData.age = age.getText().toString();
-        logData.temperature = temperature.getText().toString();
-        logData.gender = gender.getText().toString();
-        logData.reason = reason.getText().toString();
         logData.dateAndTime = currentDateAndTime;
 
         UploadLog uploadLog = new UploadLog(this, logData);

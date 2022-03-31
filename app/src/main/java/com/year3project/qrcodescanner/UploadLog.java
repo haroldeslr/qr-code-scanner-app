@@ -38,6 +38,8 @@ public class UploadLog extends AsyncTask<LogData, Void, String> {
         String temperature = logData.temperature;
         String gender = logData.gender;
         String reason = logData.reason;
+        String selectedBuildings = logData.selectedBuilding;
+        String imageName = logData.imageName;
         String time = logData.dateAndTime;
 
         String uploadURL = "https://pucls.000webhostapp.com/php/upload_log_from_android.php";
@@ -56,6 +58,8 @@ public class UploadLog extends AsyncTask<LogData, Void, String> {
                     URLEncoder.encode("temperature", "UTF-8")+"="+URLEncoder.encode(temperature, "UTF-8")+"&"+
                     URLEncoder.encode("gender", "UTF-8")+"="+URLEncoder.encode(gender, "UTF-8")+"&"+
                     URLEncoder.encode("reason", "UTF-8")+"="+URLEncoder.encode(reason, "UTF-8")+"&"+
+                    URLEncoder.encode("selected_buildings", "UTF-8")+"="+URLEncoder.encode(selectedBuildings, "UTF-8")+"&"+
+                    URLEncoder.encode("image_name", "UTF-8")+"="+URLEncoder.encode(imageName, "UTF-8")+"&"+
                     URLEncoder.encode("time", "UTF-8")+"="+URLEncoder.encode(time, "UTF-8");
             bufferedWriter.write(post_data);
             bufferedWriter.flush();

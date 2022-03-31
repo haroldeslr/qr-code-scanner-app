@@ -1,140 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SaveRecordDataActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="25dp"
-        android:fontFamily="sans-serif-black"
-        android:text="QR Code Scanner"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tv_fullname"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:drawableLeft="@drawable/user"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Full Name"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp">
 
-    <TextView
-        android:id="@+id/tv_age"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/hashtag"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Age"
-        app:layout_constraintEnd_toEndOf="@+id/tv_fullname"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_fullname"
-        app:layout_constraintTop_toBottomOf="@+id/tv_fullname" />
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="25dp"
+                android:fontFamily="sans-serif-black"
+                android:text="QR Code Scanner"
+                android:textSize="34sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/tv_address"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/contact"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Address"
-        app:layout_constraintEnd_toEndOf="@+id/tv_age"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_age"
-        app:layout_constraintTop_toBottomOf="@+id/tv_age" />
+            <TextView
+                android:id="@+id/tv_fullname"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:drawableLeft="@drawable/user"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Full Name"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/tv_contact"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/phone"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Contact Number"
-        app:layout_constraintEnd_toEndOf="@+id/tv_address"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_address"
-        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
+            <TextView
+                android:id="@+id/tv_age"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/hashtag"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Age"
+                app:layout_constraintEnd_toEndOf="@+id/tv_fullname"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_fullname"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fullname" />
 
-    <TextView
-        android:id="@+id/tv_purpose"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/clipboard"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Purpose"
-        app:layout_constraintEnd_toEndOf="@+id/tv_contact"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_contact"
-        app:layout_constraintTop_toBottomOf="@+id/tv_contact" />
+            <TextView
+                android:id="@+id/tv_address"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/contact"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Address"
+                app:layout_constraintEnd_toEndOf="@+id/tv_age"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_age"
+                app:layout_constraintTop_toBottomOf="@+id/tv_age" />
 
-    <TextView
-        android:id="@+id/tv_temp"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/thermometer"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Temperature"
-        app:layout_constraintEnd_toEndOf="@+id/tv_purpose"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_purpose"
-        app:layout_constraintTop_toBottomOf="@+id/tv_purpose" />
+            <TextView
+                android:id="@+id/tv_contact"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/phone"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Contact Number"
+                app:layout_constraintEnd_toEndOf="@+id/tv_address"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_address"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
-    <TextView
-        android:id="@+id/tv_gender"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:drawableLeft="@drawable/gender"
-        android:drawablePadding="10dp"
-        android:ems="10"
-        android:hint="Gender"
-        app:layout_constraintEnd_toEndOf="@+id/tv_temp"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tv_temp"
-        app:layout_constraintTop_toBottomOf="@+id/tv_temp" />
+            <TextView
+                android:id="@+id/tv_purpose"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/clipboard"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Purpose"
+                app:layout_constraintEnd_toEndOf="@+id/tv_contact"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_contact"
+                app:layout_constraintTop_toBottomOf="@+id/tv_contact" />
 
-    <Button
-        android:id="@+id/upload_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:onClick="onUpload"
-        android:text="Add Log"
-        android:textAllCaps="false"
-        app:layout_constraintEnd_toEndOf="@+id/tv_gender"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/tv_gender"
-        app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/tv_temp"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/thermometer"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Temperature"
+                app:layout_constraintEnd_toEndOf="@+id/tv_purpose"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_purpose"
+                app:layout_constraintTop_toBottomOf="@+id/tv_purpose" />
+
+            <TextView
+                android:id="@+id/tv_gender"
+                style="@style/Widget.AppCompat.EditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/gender"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="Gender"
+                app:layout_constraintEnd_toEndOf="@+id/tv_temp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_temp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_temp" />
+
+            <TextView
+                android:id="@+id/tv_selected_buildings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/ic_baseline_map_24"
+                android:background="@android:drawable/editbox_background"
+                android:drawablePadding="16dp"
+                android:hint="Buildings"
+                android:textSize="18sp"
+                android:padding="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/tv_temp"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/tv_temp"
+                app:layout_constraintTop_toBottomOf="@+id/tv_gender" />
+
+            <Button
+                android:id="@+id/upload_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="onUpload"
+                android:text="Add Log"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="@+id/tv_gender"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/tv_gender"
+                app:layout_constraintTop_toBottomOf="@+id/tv_selected_buildings" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</FrameLayout>
